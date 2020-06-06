@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Flask Tutorial</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1>House Price Forecasting</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Median Income" placeholder="Income" required="required" />
+        <input type="text" name="House Age" placeholder="House Age" required="required" />
+        <input type="text" name="Average Rooms" placeholder="Average Rooms" required="required" />
+        <input type="text" name="Average Bedrooms" placeholder="Average Bedrooms" required="required" />
+        <input type="text" name="Population" placeholder="Population" required="required" />
+		<input type="text" name="Average Occupied" placeholder="Average Occupied" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Price of Home</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
